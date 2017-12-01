@@ -11,14 +11,14 @@
 using namespace std;
 
 static const short COEF = 1000; // coefficient for avoiding overflow
-static const int SIZE = 1000000;
+static const int SIZE = 100000000;
 static long MULTIPLIER = 100;
 
-#define EXECUTION_MEASURE(...)                                                           \
-    [&]{                                                                                 \
-        using namespace std::chrono;                                                     \
-        auto start = high_resolution_clock::now();                                       \
-        __VA_ARGS__;                                                                     \
+#define EXECUTION_MEASURE(...)                                                            \
+    [&]{                                                                                  \
+        using namespace std::chrono;                                                      \
+        auto start = high_resolution_clock::now();                                        \
+        __VA_ARGS__;                                                                      \
         return duration_cast<microseconds>(high_resolution_clock::now() - start).count(); \
     }()
 
@@ -32,11 +32,12 @@ void mutateParallel(vector<T> &values, F functor, size_t threadNumber = std::thr
     size_t sliceSize = values.size() / threadNumber;
     vector<thread> threads;
     for (auto iter = values.begin(), end = values.end(); iter < end; iter += sliceSize) {
-        threads.push_back(thread([=](auto it) {
+        thread tempThread([=](auto it) {
             auto leftLimit = it;
-            auto rightLimit = (it + sliceSize) < end? it + sliceSize : end ;
+            auto rightLimit = (it + sliceSize) < end? it + sliceSize : end;
             for_each(leftLimit, rightLimit, functor);
-        }, iter));
+        }, iter);
+        threads.push_back(std::move(tempThread));
     }
     for (auto& val: threads) {
         val.join();
@@ -46,8 +47,8 @@ void mutateParallel(vector<T> &values, F functor, size_t threadNumber = std::thr
 int main() {
     random_device randomDevice;
     mt19937 generator(randomDevice());
-    uniform_int_distribution<int> dist(numeric_limits<int>::min()/COEF,
-                                       numeric_limits<int>::max()/COEF);
+    uniform_int_distribution<int> dist(numeric_limits<int>::min() / COEF,
+                                       numeric_limits<int>::max() / COEF);
 
     vector<int> vectorSeq(SIZE);
     generate(begin(vectorSeq), end(vectorSeq), [&]() {
@@ -59,8 +60,10 @@ int main() {
         value *= MULTIPLIER;
     };
 
-    cout << EXECUTION_MEASURE(mutateSequentual(vectorSeq, stuff)) << endl;
-    cout << EXECUTION_MEASURE(mutateParallel(vectorPar, stuff)) << endl;
+    cout << "Sequential algorithm " << "(Size=" << SIZE << ", Multiplier=" << MULTIPLIER << "): "
+         << EXECUTION_MEASURE(mutateSequentual(vectorSeq, stuff)) << " microseconds. " << endl;
+    cout << "Parallel algorithm " << "(Size=" << SIZE << ", Multiplier=" << MULTIPLIER << "): "
+         << EXECUTION_MEASURE(mutateParallel(vectorPar, stuff)) << " microseconds. " << endl;
 
     return 0;
 }
