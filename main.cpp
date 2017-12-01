@@ -33,9 +33,9 @@ void mutateParallel(vector<T> &values, F functor, size_t threadNumber = std::thr
     vector<thread> threads;
     for (auto iter = values.begin(), end = values.end(); iter < end; iter += sliceSize) {
         thread tempThread([=](auto it) {
-            auto leftLimit = it;
-            auto rightLimit = (it + sliceSize) < end? it + sliceSize : end;
-            for_each(leftLimit, rightLimit, functor);
+            auto limit = (it + sliceSize);
+            limit = limit < end? limit : end;
+            for_each(it, limit, functor);
         }, iter);
         threads.push_back(std::move(tempThread));
     }
