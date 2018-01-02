@@ -30,7 +30,7 @@ class Test {
             iota(standartVector.begin(), standartVector.end(), 0);
         }
 
-        Test(size_t size, int i) {
+        Test(size_t size, int i) { //useless constructor
             standartVector.resize(size);
             size_t coef = size / 10000; // coefficient for avoiding overflow
             random_device randomDevice;
