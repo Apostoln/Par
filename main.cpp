@@ -43,21 +43,14 @@ class Test {
         }
 
         void seqVsPar() {
-            cout << "Analyse multithreading with different array size and number of threads:" << endl;
-
             auto simpleOperation = [&](int& value) {
                 value *= MULTIPLIER;
             };
 
-            for(int size = 10; size <= 100000; size *= 10) {
-                for(int threads = 2; threads <= 10; threads++ ) {
-                    vector<int> vect(standartVector.begin(), standartVector.begin() + size);
-                    parallel.solve(vect, Method::PAR,  simpleOperation, threads, "Simple");
-                    if(5 == threads) {
-                        threads = 9;
-                    }
-                }
-            }
+            cout << "\nAnalyse dependency of size with performance:" << endl;
+            auto vect = standartVector;
+            parallel.solve(vect, Method::SEQ, simpleOperation, 1, "Simple");
+            parallel.solve(vect, Method::PAR, simpleOperation, HARDWARE_THREADS, "Simple");
         }
 
         void withDifferentSizeAndThreads() {
@@ -65,7 +58,7 @@ class Test {
                 value *= MULTIPLIER;
             };
 
-            cout << "Analyse multithreading with different array size and number of threads:" << endl;
+            cout << "\nAnalyse multithreading with different array size and number of threads:" << endl;
             for(int size = 10; size <= 100000; size *= 10) {
                 for(int threads = 2; threads <= 10; threads++ ) {
                     vector<int> vect(standartVector.begin(), standartVector.begin() + size);
