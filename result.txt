@@ -1,0 +1,98 @@
+There are 3 hardware threads on this computer
+
+Analyse multithreading with different array size and number of threads:
+Parallel algorithm (Size=10, Threads=2, Operation=Simple): 287 microseconds. 
+Parallel algorithm (Size=10, Threads=3, Operation=Simple): 321 microseconds. 
+Parallel algorithm (Size=10, Threads=4, Operation=Simple): 291 microseconds. 
+Parallel algorithm (Size=10, Threads=5, Operation=Simple): 245 microseconds. 
+Parallel algorithm (Size=10, Threads=10, Operation=Simple): 597 microseconds. 
+Parallel algorithm (Size=100, Threads=2, Operation=Simple): 178 microseconds. 
+Parallel algorithm (Size=100, Threads=3, Operation=Simple): 217 microseconds. 
+Parallel algorithm (Size=100, Threads=4, Operation=Simple): 270 microseconds. 
+Parallel algorithm (Size=100, Threads=5, Operation=Simple): 295 microseconds. 
+Parallel algorithm (Size=100, Threads=10, Operation=Simple): 664 microseconds. 
+Parallel algorithm (Size=1000, Threads=2, Operation=Simple): 214 microseconds. 
+Parallel algorithm (Size=1000, Threads=3, Operation=Simple): 126 microseconds. 
+Parallel algorithm (Size=1000, Threads=4, Operation=Simple): 106 microseconds. 
+Parallel algorithm (Size=1000, Threads=5, Operation=Simple): 176 microseconds. 
+Parallel algorithm (Size=1000, Threads=10, Operation=Simple): 754 microseconds. 
+Parallel algorithm (Size=10000, Threads=2, Operation=Simple): 190 microseconds. 
+Parallel algorithm (Size=10000, Threads=3, Operation=Simple): 275 microseconds. 
+Parallel algorithm (Size=10000, Threads=4, Operation=Simple): 219 microseconds. 
+Parallel algorithm (Size=10000, Threads=5, Operation=Simple): 535 microseconds. 
+Parallel algorithm (Size=10000, Threads=10, Operation=Simple): 930 microseconds. 
+Parallel algorithm (Size=100000, Threads=2, Operation=Simple): 485 microseconds. 
+Parallel algorithm (Size=100000, Threads=3, Operation=Simple): 545 microseconds. 
+Parallel algorithm (Size=100000, Threads=4, Operation=Simple): 452 microseconds. 
+Parallel algorithm (Size=100000, Threads=5, Operation=Simple): 437 microseconds. 
+Parallel algorithm (Size=100000, Threads=10, Operation=Simple): 413 microseconds. 
+Analyse multithreading with different array size and number of threads:
+Parallel algorithm (Size=10, Threads=2, Operation=Simple): 244 microseconds. 
+Parallel algorithm (Size=10, Threads=3, Operation=Simple): 114 microseconds. 
+Parallel algorithm (Size=10, Threads=4, Operation=Simple): 118 microseconds. 
+Parallel algorithm (Size=10, Threads=5, Operation=Simple): 108 microseconds. 
+Parallel algorithm (Size=10, Threads=10, Operation=Simple): 285 microseconds. 
+Parallel algorithm (Size=100, Threads=2, Operation=Simple): 78 microseconds. 
+Parallel algorithm (Size=100, Threads=3, Operation=Simple): 70 microseconds. 
+Parallel algorithm (Size=100, Threads=4, Operation=Simple): 57 microseconds. 
+Parallel algorithm (Size=100, Threads=5, Operation=Simple): 81 microseconds. 
+Parallel algorithm (Size=100, Threads=10, Operation=Simple): 259 microseconds. 
+Parallel algorithm (Size=1000, Threads=2, Operation=Simple): 123 microseconds. 
+Parallel algorithm (Size=1000, Threads=3, Operation=Simple): 140 microseconds. 
+Parallel algorithm (Size=1000, Threads=4, Operation=Simple): 51 microseconds. 
+Parallel algorithm (Size=1000, Threads=5, Operation=Simple): 241 microseconds. 
+Parallel algorithm (Size=1000, Threads=10, Operation=Simple): 347 microseconds. 
+Parallel algorithm (Size=10000, Threads=2, Operation=Simple): 149 microseconds. 
+Parallel algorithm (Size=10000, Threads=3, Operation=Simple): 134 microseconds. 
+Parallel algorithm (Size=10000, Threads=4, Operation=Simple): 154 microseconds. 
+Parallel algorithm (Size=10000, Threads=5, Operation=Simple): 157 microseconds. 
+Parallel algorithm (Size=10000, Threads=10, Operation=Simple): 356 microseconds. 
+Parallel algorithm (Size=100000, Threads=2, Operation=Simple): 299 microseconds. 
+Parallel algorithm (Size=100000, Threads=3, Operation=Simple): 255 microseconds. 
+Parallel algorithm (Size=100000, Threads=4, Operation=Simple): 247 microseconds. 
+Parallel algorithm (Size=100000, Threads=5, Operation=Simple): 275 microseconds. 
+Parallel algorithm (Size=100000, Threads=10, Operation=Simple): 768 microseconds. 
+
+Analyse dependency of complexity with performance:
+Sequential algorithm (Size=1000, Threads=1, Operation=Complex, K=10): 826 microseconds. 
+Parallel algorithm (Size=1000, Threads=3, Operation=Complex, K=10): 742 microseconds. 
+Sequential algorithm (Size=1000, Threads=1, Operation=Complex, K=20): 1190 microseconds. 
+Parallel algorithm (Size=1000, Threads=3, Operation=Complex, K=20): 1112 microseconds. 
+Sequential algorithm (Size=1000, Threads=1, Operation=Complex, K=30): 1521 microseconds. 
+Parallel algorithm (Size=1000, Threads=3, Operation=Complex, K=30): 714 microseconds. 
+Sequential algorithm (Size=1000, Threads=1, Operation=Complex, K=40): 1696 microseconds. 
+Parallel algorithm (Size=1000, Threads=3, Operation=Complex, K=40): 1641 microseconds. 
+Sequential algorithm (Size=1000, Threads=1, Operation=Complex, K=50): 2086 microseconds. 
+Parallel algorithm (Size=1000, Threads=3, Operation=Complex, K=50): 1076 microseconds. 
+Sequential algorithm (Size=1000, Threads=1, Operation=Complex, K=60): 2427 microseconds. 
+Parallel algorithm (Size=1000, Threads=3, Operation=Complex, K=60): 2874 microseconds. 
+Sequential algorithm (Size=1000, Threads=1, Operation=Complex, K=70): 2814 microseconds. 
+Parallel algorithm (Size=1000, Threads=3, Operation=Complex, K=70): 3170 microseconds. 
+Sequential algorithm (Size=1000, Threads=1, Operation=Complex, K=80): 3210 microseconds. 
+Parallel algorithm (Size=1000, Threads=3, Operation=Complex, K=80): 1530 microseconds. 
+Sequential algorithm (Size=1000, Threads=1, Operation=Complex, K=90): 3516 microseconds. 
+Parallel algorithm (Size=1000, Threads=3, Operation=Complex, K=90): 3009 microseconds. 
+Sequential algorithm (Size=1000, Threads=1, Operation=Complex, K=100): 3399 microseconds. 
+Parallel algorithm (Size=1000, Threads=3, Operation=Complex, K=100): 4109 microseconds. 
+
+Analyse dependency of complexity with performance in case of circle:
+Sequential algorithm (Size=1000, Threads=1, Operation=Complex, K=10): 491 microseconds. 
+Circle algorithm (Size=1000, Threads=3, Operation=Complex, K=10): 395 microseconds. 
+Sequential algorithm (Size=1000, Threads=1, Operation=Complex, K=20): 804 microseconds. 
+Circle algorithm (Size=1000, Threads=3, Operation=Complex, K=20): 546 microseconds. 
+Sequential algorithm (Size=1000, Threads=1, Operation=Complex, K=30): 1075 microseconds. 
+Circle algorithm (Size=1000, Threads=3, Operation=Complex, K=30): 1054 microseconds. 
+Sequential algorithm (Size=1000, Threads=1, Operation=Complex, K=40): 1628 microseconds. 
+Circle algorithm (Size=1000, Threads=3, Operation=Complex, K=40): 1375 microseconds. 
+Sequential algorithm (Size=1000, Threads=1, Operation=Complex, K=50): 2597 microseconds. 
+Circle algorithm (Size=1000, Threads=3, Operation=Complex, K=50): 1611 microseconds. 
+Sequential algorithm (Size=1000, Threads=1, Operation=Complex, K=60): 3046 microseconds. 
+Circle algorithm (Size=1000, Threads=3, Operation=Complex, K=60): 1837 microseconds. 
+Sequential algorithm (Size=1000, Threads=1, Operation=Complex, K=70): 3503 microseconds. 
+Circle algorithm (Size=1000, Threads=3, Operation=Complex, K=70): 2856 microseconds. 
+Sequential algorithm (Size=1000, Threads=1, Operation=Complex, K=80): 3193 microseconds. 
+Circle algorithm (Size=1000, Threads=3, Operation=Complex, K=80): 3064 microseconds. 
+Sequential algorithm (Size=1000, Threads=1, Operation=Complex, K=90): 3526 microseconds. 
+Circle algorithm (Size=1000, Threads=3, Operation=Complex, K=90): 1776 microseconds. 
+Sequential algorithm (Size=1000, Threads=1, Operation=Complex, K=100): 3930 microseconds. 
+Circle algorithm (Size=1000, Threads=3, Operation=Complex, K=100): 3997 microseconds. 
